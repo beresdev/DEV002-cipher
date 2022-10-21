@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Michroma', sans-serif;
+    color: #DDDDDD;
+    background-color: #222831;
+}
+
+.index-body {
+    text-align: center;
+}
+
+header, h2, main{
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+.index-main p {
+    font-size: 20px;
+}
+
+.main-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 800px;
+    padding-top: 100px;
+}
+
+.button {
+    width: 300px;
+    height: 80px;
+    border: solid 3px #F05454;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.button:hover {
+    background-color: #F05454;
+    cursor: pointer;
+}
+
+/* code.html */
+
+.code-body main {
+    margin-top: 50px;
+}
+
+.instructions {
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+.instructions ul {
+    padding:10px 0 20px 50px;
+}
+
+.section-key {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.section-key input {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.section-textarea {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.section-textarea textarea {
+    display: inline-block;
+    width: 550px;
+    height: 200px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.section-buttons-code {
+    display: flex;
+    width: 500px ;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.code-body button {
+    margin: 20px;
+}
+
+/* decode.html */
+
+
+.main-decode {
+    margin-top: 50px ;
+}
+
+.main-decode p {
+    text-align: center;
+}
+
+.main-decode .section-buttons-code .button {
+    margin-top: 50px;
+}
+
