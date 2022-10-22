@@ -21,8 +21,9 @@
             </ul>
         </section>
         <section class="section-key">
-            <label for="">Clave: </label>
-            <input type="text">
+            <label for="key">Clave: </label>
+            <input id="key" type="number" min="0" oninput="this.value = Math.abs(this.value)">
+            <button type="button" id="enviar">Enviar</button>
         </section>
         <section class="section-textarea">
             <div>
@@ -39,6 +40,6 @@
             <!-- <button></button> -->
         </section>
     </main>
-    <script src="index.js" type="module"></script>
+    <script src="./code.js" type="module"></script>
 </body>
 </html>
