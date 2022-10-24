@@ -6,7 +6,7 @@ const botonCifrar = document.getElementById("cbutton");
 const botonDescifrar = document.getElementById("dbutton");
 
 botonCifrar.addEventListener("click", function() {
-    window.open("./code.html")
+    window.open("./encode.html")
 })
 
 botonDescifrar.addEventListener("click", function() {

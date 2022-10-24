@@ -8,28 +8,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Descifrar mensaje</title>
 </head>
 <body>
     <main class="main-decode">
         <p>Pega el mensaje a descifrar e indicanos la clave</p>
         <section class="section-key">
             <label for="key">Clave: </label>
-            <input type="text">
+            <input type="text" id="key">
         </section>
         <section class="section-textarea">
             <div>
                 <p><label for="originalText">Texto cifrado</label></p>
-                <textarea name="" id="originalText" cols="30" rows="10"></textarea>
+                <textarea name="" id="cipherText" cols="30" rows="10"></textarea>
             </div>
             <div>
                 <p><label for="cipherText">Texto descifrado</label></p>
-                <textarea name="" id="cipherText" cols="30" rows="10"></textarea>
+                <textarea name="" id="decipherText" cols="30" rows="10"></textarea>
             </div>
         </section>
         <section class="section-buttons-code">
-            <button type="button" class="button">DESCIFRAR MENSAJE</button>
+            <button type="button" class="button" id="dbutton">DESCIFRAR MENSAJE</button>
         </section>
     </main>
+    <script src="./decode.js" type="module"></script>
 </body>
 </html>
