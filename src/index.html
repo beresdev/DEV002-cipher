@@ -6,18 +6,71 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/77b370538f.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
   </head>
   <body class="index-body">
     <header>
       <h1>MENSAJES DEL CÉSAR</h1>
-      <h2>BIENVENIDX</h2>
     </header>
-    <main class="index-main">
-      <p>Cómo te ayudamos?</p>
-      <section class="main-buttons">
-        <button type="button" class="button" id="cbutton">CIFRAR MENSAJE</button>
-        <button type="button" class="button" id ="dbutton">DESCIFRAR MENSAJE</button>
+    <main >
+      <section id="main-section" class="index-main">
+        <h2>BIENVENIDA</h2>
+        <!-- <p>Cómo te ayudamos?</p> -->
+        <div class="main-buttons">
+          <button type="button" class="button" id="cbutton">CIFRAR MENSAJE</button>
+          <button type="button" class="button" id ="dbutton">DESCIFRAR MENSAJE</button>
+        </div>
+      </section>
+      <section id="encode-section" class="encode">
+        <div class="instructions">
+          <p>Para cifrar tu mensaje recuerda: </p>
+          <ul>
+              <li>La clave debe ser numero entero</li>
+              <li>Utiliza solo letras mayúsculas</li>
+              <li>No uses la letra Ñ</li>
+          </ul>
+        </div>
+        <div class="encode-main">
+          <div class="section-textarea">
+            <textarea name="originalText" id="originalText" cols="30" rows="10" placeholder="Escibe aqui tu texto..."></textarea>
+          </div>
+          <div class="section-key-button">
+            <div class="label-input">
+              <label for="key">Clave: </label>
+              <input id="key" type="number" min="0" oninput="this.value = Math.abs(this.value)" required="required">
+            </div>
+              <button type="button" class="button" id="cbutton">CIFRAR MENSAJE</button>
+          </div>
+          <div class="section-textarea" >
+            <textarea name="" id="cipherText" cols="30" rows="10" placeholder="Aqui verás tu texto cifrado"></textarea>
+          </div>
+        </div>
+        <div class="buttons-end">
+          <button onclick="location.reload()"><i class="fa-solid fa-caret-left"></i> INICIO</button>
+          <button>DESCIFRAR <i class="fa-solid fa-caret-right"></i></button>
+        </div>
+      </section>
+      <section id="decode-section" class="decode">
+        <div class="decode-main">
+          <div class="section-textarea">
+            <textarea name="originalText" id="originalText" cols="30" rows="10" placeholder="Ingresa el texto cifrado ..."></textarea>
+          </div>
+          <div class="section-key-button">
+            <div class="label-input">
+              <label for="key">Clave: </label>
+              <input id="key" type="number" min="0" oninput="this.value = Math.abs(this.value)" required="required">
+            </div>
+              <button type="button" class="button" id="cbutton">DESCIFRAR MENSAJE</button>
+          </div>
+          <div class="section-textarea" >
+            <textarea name="" id="cipherText" cols="30" rows="10" placeholder="Aqui verás tu texto descifrado"></textarea>
+          </div>
+        </div>
+        <div class="buttons-end">
+          <button onclick="location.reload()"><i class="fa-solid fa-caret-left"></i> INICIO</button>
+          <button>CIFRAR <i class="fa-solid fa-caret-right"></i></button>
+        </div>
       </section>
     </main>
     <script src="./index.js" type="module"></script>

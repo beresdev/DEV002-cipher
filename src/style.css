@@ -10,32 +10,26 @@ body {
     background-color: #222831;
 }
 
-.index-body {
-    text-align: center;
-}
-
 header, h2, main{
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 h1 {
+    text-align: center;
     font-size: 36px;
 }
 
 h2 {
+    text-align: center;
     font-size: 24px;
-}
-
-.index-main p {
-    font-size: 20px;
 }
 
 .main-buttons {
     display: flex;
     justify-content: space-around;
-    margin: 0 auto;
+    margin: 200px auto 0;
     width: 800px;
-    padding-top: 100px;
+    /* padding-top: 100px; */
 }
 
 .button {
@@ -51,13 +45,14 @@ h2 {
     cursor: pointer;
 }
 
-/* encode.html */
+/* encode section */
 
-.code-body main {
-    margin-top: 50px;
+.encode, .decode {
+    display: flex;
+    flex-direction: column;
 }
 
-.instructions {
+.encode .instructions {
     padding: 0 20px;
     font-size: 20px;
 }
@@ -66,57 +61,77 @@ h2 {
     padding:10px 0 20px 50px;
 }
 
-.section-key {
-    text-align: center;
-    padding: 30px 0;
-}
-
-.section-key input {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-    text-align: center;
-}
-
-
-.section-textarea {
+.encode-main, .decode-main {
     display: flex;
-    width: 1200px;
-    margin: 0 auto;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
 }
 
-.section-textarea textarea {
-    display: inline-block;
-    width: 550px;
+.encode-main .section-textarea textarea {
+    width: 450px;
     height: 200px;
     text-align: center;
     font-size: 16px;
 }
 
-.section-buttons-code {
-    display: flex;
-    width: 500px ;
-    justify-content: center;
-    margin: 0 auto;
+.section-key-button {
+    width: 25%;
+    padding: 10px 0;
+    text-align: center;
 }
-
-.code-body button {
-    margin: 20px;
-}
-
-/* decode.html */
-
-
-.main-decode {
-    margin-top: 50px ;
-}
-
-.main-decode p {
+.section-key-button input {
+    width: 70px;
+    height: 50px;
+    font-size: 20px;
     text-align: center;
 }
 
-.main-decode .section-buttons-code .button {
-    margin-top: 50px;
+.label-input {
+    width:200px;
+    margin: 0 auto;
 }
+
+.section-key-button button {
+    margin: 15px 0;
+}
+
+.buttons-end {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 50px auto;
+}
+
+.buttons-end button {
+    width: 200px;
+    height: 50px;
+    border: solid 3px #F05454;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.buttons-end button i {
+    font-size: 20px;
+}
+
+.buttons-end button:hover {
+    background-color: #F05454;
+    cursor: pointer;
+}
+
+/* decode.section */
+
+.decode {
+    margin-top: 12%;
+}
+
+
+.decode-main .section-textarea textarea {
+    width: 450px;
+    height: 200px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
 

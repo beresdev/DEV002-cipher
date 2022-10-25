@@ -3,7 +3,12 @@
 //     otext: [],
 
 //     encode: function  () {
-        
+//         // let valor = parseInt(input.value);
+//         // let otext = text.value;
+//         let textInASCII = [];
+//         let codeTextInASCII = [];
+//         let codeText = []; 
+
 //         for (let i=0; i < otext.length; i++) {
 //             let x = otext.charCodeAt(i);
 //             textInASCII.push(x)
@@ -11,7 +16,7 @@
 //                 let l = 32;
 //                 codeTextInASCII.push(l);
 //             } else {
-//                 let l = ((textInASCII[i] - 65 + valor) % 26) + 65;
+//                 let l = ((textInASCII[i] - 65 + this.offset) % 26) + 65;
 //                 codeTextInASCII.push(l);
 //             }
 //             let y = String.fromCharCode(codeTextInASCII[i]);
