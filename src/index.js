@@ -38,7 +38,7 @@ function cifrarMensaje() {
 
     if (text.value === '') {
         alert("Agrega texto a cifrar")
-    } else if (inputC.value === ''|| inputC.value === 0 || inputC.value === NaN) {
+    } else if (inputC.value === '') {
         alert("Especifica clave de cifrado")
     }
 
@@ -54,7 +54,7 @@ function cifrarMensaje() {
         for (let i=0; i < otext.length; i++) {
             let x = otext.charCodeAt(i);
             textInASCII.push(x)
-            console.log(textInASCII[i]);
+            // console.log(textInASCII[i]);
             if (textInASCII[i] === 32) {
                 let l = 32;
                 codeTextInASCII.push(l);
@@ -85,7 +85,7 @@ botonDescifrarS.addEventListener("click", descifrarMensaje);
 function descifrarMensaje() {
     if (ctextD.value === '') {
         alert("Agrega texto a descifrar")
-    } else if (inputD.value === ''|| inputD.value === 0 || inputD.value === NaN) {
+    } else if (inputD.value === '') {
         alert("Especifica clave de descifrado")
     }
     let n = parseInt(inputD.value);
