@@ -11,6 +11,8 @@ const botonCifrarI = document.getElementById("cbutton");
 const botonDescifrarI = document.getElementById("dbutton");
 const botonCifrarS = document.getElementById("cbuttonS");
 const botonDescifrarS = document.getElementById("dbuttonS");
+const botonDescifrarE = document.getElementById("dbuttonE");
+const botonCifrarE = document.getElementById("cbuttonE");
 
 let inputC = document.getElementById("keyC");
 let inputD = document.getElementById("keyD");
@@ -22,19 +24,22 @@ let ctextD = document.getElementById("cipherTextD");
 let dctext = document.getElementById("decipherText");
 
 
-botonCifrarI.addEventListener("click", function() {
+botonCifrarI.addEventListener("click", showEncodeSection);
+
+function showEncodeSection() {
     document.getElementById("main-section").style.display = "none";
     document.getElementById("encode-section").style.display = "flex";
     document.getElementById("decode-section").style.display = "none";
-})
+}
 
 botonCifrarS.addEventListener("click", cifrarMensaje)
 
 function cifrarMensaje() {
-    if (inputC.value === ''|| inputC.value === 0 || inputC.value === NaN) {
-        alert("Especifica clave de cifrado")
-    } else if (text.value === '') {
+
+    if (text.value === '') {
         alert("Agrega texto a cifrar")
+    } else if (inputC.value === ''|| inputC.value === 0 || inputC.value === NaN) {
+        alert("Especifica clave de cifrado")
     }
 
     let valor = parseInt(inputC.value);
@@ -49,6 +54,7 @@ function cifrarMensaje() {
         for (let i=0; i < otext.length; i++) {
             let x = otext.charCodeAt(i);
             textInASCII.push(x)
+            console.log(textInASCII[i]);
             if (textInASCII[i] === 32) {
                 let l = 32;
                 codeTextInASCII.push(l);
@@ -63,22 +69,25 @@ function cifrarMensaje() {
     }
 }
 
-botonDescifrarI.addEventListener("click", function() {
+botonDescifrarE.addEventListener("click", showDecodeSection)
+
+
+botonDescifrarI.addEventListener("click",showDecodeSection);
+
+function showDecodeSection() {
     document.getElementById("main-section").style.display = "none";
     document.getElementById("decode-section").style.display = "flex";
     document.getElementById("encode-section").style.display = "none";
-    // window.open("./decode.html")
-})
+}
 
 botonDescifrarS.addEventListener("click", descifrarMensaje);
 
 function descifrarMensaje() {
-    if (inputD.value === ''|| inputD.value === 0 || inputD.value === NaN) {
-        alert("Especifica clave de descifrado")
-    } else if (ctextD.value === '') {
+    if (ctextD.value === '') {
         alert("Agrega texto a descifrar")
+    } else if (inputD.value === ''|| inputD.value === 0 || inputD.value === NaN) {
+        alert("Especifica clave de descifrado")
     }
-
     let n = parseInt(inputD.value);
     let principalText = ctextD.value;
     let textInASCII = [];
@@ -103,4 +112,5 @@ function descifrarMensaje() {
     dctext.innerHTML = decodeText.join('');
 }
 
+botonCifrarE.addEventListener("click", showEncodeSection);
 
