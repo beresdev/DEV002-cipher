@@ -38,9 +38,9 @@
           <div class="section-key-button">
             <div class="label-input">
               <label for="key">Clave: </label>
-              <input id="key" type="number" min="0" oninput="this.value = Math.abs(this.value)" required="required">
+              <input id="keyC" type="number" min="0" oninput="this.value = Math.abs(this.value)" required="required">
             </div>
-              <button type="button" class="button" id="cbutton">CIFRAR MENSAJE</button>
+              <button type="button" class="button" id="cbuttonS">CIFRAR MENSAJE</button>
           </div>
           <div class="section-textarea" >
             <textarea name="" id="cipherText" cols="30" rows="10" placeholder="Aqui verás tu texto cifrado"></textarea>
@@ -54,17 +54,17 @@
       <section id="decode-section" class="decode">
         <div class="decode-main">
           <div class="section-textarea">
-            <textarea name="originalText" id="originalText" cols="30" rows="10" placeholder="Ingresa el texto cifrado ..."></textarea>
+            <textarea name="cipherTextD" id="cipherTextD" cols="30" rows="10" placeholder="Ingresa el texto cifrado ..."></textarea>
           </div>
           <div class="section-key-button">
             <div class="label-input">
               <label for="key">Clave: </label>
-              <input id="key" type="number" min="0" oninput="this.value = Math.abs(this.value)" required="required">
+              <input id="keyD" type="number" min="0" oninput="this.value = Math.abs(this.value)" required="required">
             </div>
-              <button type="button" class="button" id="cbutton">DESCIFRAR MENSAJE</button>
+              <button type="button" class="button" id="dbuttonS">DESCIFRAR MENSAJE</button>
           </div>
           <div class="section-textarea" >
-            <textarea name="" id="cipherText" cols="30" rows="10" placeholder="Aqui verás tu texto descifrado"></textarea>
+            <textarea name="" id="decipherText" cols="30" rows="10" placeholder="Aqui verás tu texto descifrado"></textarea>
           </div>
         </div>
         <div class="buttons-end">
