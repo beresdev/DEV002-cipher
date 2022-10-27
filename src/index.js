@@ -1,10 +1,7 @@
 import cipher from './cipher.js';
 
-
 document.getElementById("encode-section").style.display = "none";
 document.getElementById("decode-section").style.display = "none";
-
-
 
 const botonCifrarI = document.getElementById("cbutton");
 const botonDescifrarI = document.getElementById("dbutton");
@@ -42,10 +39,7 @@ botonCifrarS.addEventListener("click", function(){
     let valor = parseInt(inputC.value);
     let otext = text.value;
 
-    cipher.text = otext;
-    cipher.offset = valor;
-
-    ctext.innerHTML = cipher.encode().join('');
+    ctext.innerHTML = cipher.encode(valor, otext);
 })
 
 botonDescifrarE.addEventListener("click", showDecodeSection)
@@ -68,10 +62,7 @@ botonDescifrarS.addEventListener("click", function() {
     let n = parseInt(inputD.value);
     let principalText = ctextD.value;
 
-    cipher.text = principalText;
-    cipher.offset = n;
-
-    dctext.innerHTML = cipher.decode().join('');
+    dctext.innerHTML = cipher.decode(n,principalText);
 
 });
 
