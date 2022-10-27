@@ -1,6 +1,5 @@
-// import cipher from './cipher.js';
+import cipher from './cipher.js';
 
-// console.log(cipher);
 
 document.getElementById("encode-section").style.display = "none";
 document.getElementById("decode-section").style.display = "none";
@@ -32,9 +31,7 @@ function showEncodeSection() {
     document.getElementById("decode-section").style.display = "none";
 }
 
-botonCifrarS.addEventListener("click", cifrarMensaje)
-
-function cifrarMensaje() {
+botonCifrarS.addEventListener("click", function(){
 
     if (text.value === '') {
         alert("Agrega texto a cifrar")
@@ -44,33 +41,14 @@ function cifrarMensaje() {
 
     let valor = parseInt(inputC.value);
     let otext = text.value;
-    let textInASCII = [];
-    let codeTextInASCII = [];
-    let codeText = []; 
 
-    if (valor % 26 === 0) {
-        alert("Por seguridad ingresa un valor distinto")
-    } else {
-        for (let i=0; i < otext.length; i++) {
-            let x = otext.charCodeAt(i);
-            textInASCII.push(x)
-            // console.log(textInASCII[i]);
-            if (textInASCII[i] === 32) {
-                let l = 32;
-                codeTextInASCII.push(l);
-            } else {
-                let l = ((textInASCII[i] - 65 + valor) % 26) + 65;
-                codeTextInASCII.push(l);
-            }
-            let y = String.fromCharCode(codeTextInASCII[i]);
-            codeText.push(y);
-        }
-        ctext.innerHTML = codeText.join('');
-    }
-}
+    cipher.text = otext;
+    cipher.offset = valor;
+
+    ctext.innerHTML = cipher.encode().join('');
+})
 
 botonDescifrarE.addEventListener("click", showDecodeSection)
-
 
 botonDescifrarI.addEventListener("click",showDecodeSection);
 
@@ -80,37 +58,25 @@ function showDecodeSection() {
     document.getElementById("encode-section").style.display = "none";
 }
 
-botonDescifrarS.addEventListener("click", descifrarMensaje);
-
-function descifrarMensaje() {
+botonDescifrarS.addEventListener("click", function() {
     if (ctextD.value === '') {
         alert("Agrega texto a descifrar")
     } else if (inputD.value === '') {
         alert("Especifica clave de descifrado")
     }
+
     let n = parseInt(inputD.value);
     let principalText = ctextD.value;
-    let textInASCII = [];
-    let decodeTextInASCII = [];
-    let decodeText = [];
 
-    for (let i = 0; i < principalText.length; i++) {
-        let x = principalText.charCodeAt(i);
-        textInASCII.push(x);
+    cipher.text = principalText;
+    cipher.offset = n;
 
-        if(textInASCII[i] === 32) {
-            let l = 32;
-            decodeTextInASCII.push(l);
-        } else {
-            let l = ((textInASCII[i] + 65 - n) % 26) + 65;
-            decodeTextInASCII.push(l);
-        }
+    dctext.innerHTML = cipher.decode().join('');
 
-        let y = String.fromCharCode(decodeTextInASCII[i]);
-        decodeText.push(y);
-    }
-    dctext.innerHTML = decodeText.join('');
-}
+});
 
 botonCifrarE.addEventListener("click", showEncodeSection);
+
+
+
 
