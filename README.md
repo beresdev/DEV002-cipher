@@ -3,10 +3,11 @@
 ## Proyecto 1
 
 ### Laboratoria 💛 DEV002 Desarrollo Web
-
 * *Berenice Hernández*
+
  ---
  ---
+
 El desarrollo de este proyecto se realizó por etapas, las cuales indico a continuación.
 
 * [0. Primeros pasos](#0-primeros-pasos)
