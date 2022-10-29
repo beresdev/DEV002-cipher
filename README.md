@@ -1,466 +1,231 @@
-# Cifrado César
+# <font color ="red">CIFRADO CESAR </font>
+---
+## Proyecto 1
 
-## Índice
+### Laboratoria 💛 DEV002 Desarrollo Web
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Consideraciones técnicas](#7-consideraciones-técnicas)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-* [9. Checklist](#9-checklist)
+* *Berenice Hernández*
+ ---
+ ---
+El desarrollo de este proyecto se realizó por etapas, las cuales indico a continuación.
+
+* [0. Primeros pasos](#0-primeros-pasos)
+* [1. Diseño](#1-diseño)
+* [2. Maquetación](#2-maquetacion)
+* [3. Estilos](#3-estilos)
+* [4. Funciones en Java Script](#4-funciones-en-java-script)
+* [5. Pruebas](#5-pruebas)
+* [6. Rediseño](#6-rediseño)
+* [7. Ajuste de código](#7-ajuste-de-codigo)
+* [8. Deploy en Github Pages](#8-deply-en-github-pages)
+* [9. Creación de métodos y objetos](#9-creacion-de-metodos-y-objetos)
+* [10. Pruebas unitarias](#10-pruebas-unitarias)
 
 ***
 
-## 1. Preámbulo
+## 0. Primeros pasos
+En este proyecto se utilizó Visual Studio Code, Windows Subsystem for Linux (WSL), Node.js, Git y GitHub.
 
-Cifrar significa codificar. El [cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher)
-es uno de los primeros métodos de cifrado conocidos. El emperador romano Julio
-César lo usaba para enviar órdenes secretas a sus generales en los campos de
-batalla.
+## 1. Diseño
+EL diseño está pensado como una aplicación sencilla de cifrado. 
 
-![caeser-cipher](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/2000px-Caesar3.svg.png)
+### Prototipo
+Para la creación del prototipo se usó [Figma](https://www.figma.com/file/3P8Bnb6Z48Ouvehx6y2fx6/Untitled?node-id=0%3A1).
 
-El cifrado césar es una de las técnicas más simples para cifrar un mensaje. Es
-un tipo de cifrado por sustitución, es decir que cada letra del texto original
-es reemplazada por otra que se encuentra un número fijo de posiciones
-(desplazamiento) más adelante en el mismo alfabeto.
+De principio se opto por un diseño de 3 pantallas independientes, es decir cada una con un HTML y JS diferentes.
 
-Por ejemplo, si usamos un desplazamiento (_offset_) de 3 posiciones:
+La pantalla principal con un mensaje de bienvenida y 2 botones que llevarian a las otras dos pantallas:
+![Pantalla principal-Prototipo](./assets/principal.PNG)
 
-* La letra A se cifra como D.
-* La palabra CASA se cifra como FDVD.
-* Alfabeto sin cifrar: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-* Alfabeto cifrado: D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+Las pantallas "secundarias", dependiendo de si se trataba de cifrado o descifrado, contienen un texto con algunas instrucciones, 2 cajas de texto, un input y un boton. En la caja de texto de la izquierda se ingresa el texto a cifrar y/o descifrar y en la de la derecha aparece el resultado que se espera, texto cifrado o descifrado, segun sea el caso. 
 
-En la actualidad, todos los cifrados de sustitución simple se descifran con
-mucha facilidad y, aunque en la práctica no ofrecen mucha seguridad en la
-comunicación por sí mismos; el cifrado César sí puede formar parte de sistemas
-más complejos de codificación, como el cifrado Vigenère, e incluso tiene
-aplicación en el sistema ROT13.
+![Pantallas-secundarias-prototipo](./assets/secundarias.PNG)
 
-## 2. Resumen del proyecto
+EL input, al que se le etiquetó como "Clave", solo acepta numeros enteros positivos.
 
-En este proyecto crearás una aplicación web que servirá para que el usuario
-pueda cifrar y descifrar un texto indicando un desplazamiento específico de
-caracteres (_offset_).
+El botón es quien se encargará de llamar a la funcion correspondiente para que tome el texto de la izquierda, lo procese y muestre en la caja de la derecha el resultado.
 
-La temática es libre. Tú debes pensar en qué situaciones de la vida real se
-necesitaría cifrar un mensaje y pensar en cómo debe ser esa experiencia de uso
-(qué pantallas, explicaciones, mensajes, colores, ¿marca?) etc. Algunas ideas de
-ejemplo:
+### Colores
+Se eligió una paleta con colores neutros, cuidando el contraste en el uso de los mismos pensando en accesibilidad.
 
-* Crear claves seguras para el email.
-* Encriptar/cifrar una tarjeta de crédito.
-* Herramienta de mensajería interna de una organización de derechos humanos en
-  una zona de conflicto.
-* Mensajería secreta para parejas.
+![Paleta de colores](./assets/pallete.png)
+- #DDDDDD
+- #222831
+- #30475E
+- #F05454
 
-Trabajando de forma individual aprenderás a construir una aplicación web que interactuará
-con lx usuarix final a través del navegador, utilizando HTML, CSS y JavaScript
-como tecnologías.
+### Fuente
+La fuente usada se llama [Michroma](https://fonts.google.com/specimen/Michroma?preview.text=MENSAJES%20DEL%20C%C3%89SAR&preview.text_type=custom) obtenida Google Fonts.
 
-## 3. Objetivos de aprendizaje
+## 2. Maquetación
+Utilizando HTML semántico, comencé por maquetar las 3 ventanas en archivos distintos, ya que se había pensado en ese flujo, cada pantalla en una ventana nueva. Cada boton de la pantalla principal abria una nueva ventana con la pantalla segun el caso, cifrar o descifrar mensaje.
 
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
+## 3. Estilos
+Los estilos siempre se manejaron en un solo archivo.
+- Se resetearon los estilos por default. 
+- Se utlizaron selectores de etiqueta y de clase.
+- Se usaron pseudoclases
+
+En esta primera entrega no se tiene un proyecto responsivo. Esta pensado para desktop unicamente.
+
+## 4. Funciones en Java Script
+Una vez que se tuvo lista la maquetación de cada pantalla y los estilos se aplicaron, comencé con el análisis del problema y fui resolviendo paso a paso cada necesidad hasta llegar a las funciones de cifrado y descifrado. Es importante mencionar que así como se crearon distintos archivos html por pantalla, así fue tambien con javascript, uno por cada pantalla.
+
+### Análisis del problema
+1. El valor del input "Clave" solo debe aceptar numeros positivos.
+2. EL boton debe traer a JavaScript el valor ingresado en el input
+3. El texto ingresado en la caja de texto debe guardarse en un arreglo.
+4. Crear una función para convertir el valor de cada letra del texto ingresado, en ASCII
+5. Guardar en un arreglo el valor del ASCII obtenido
+6. Aplicar la fórmula de cifrado a cada valor del arreglo ASCII.
+7. Guardar en un arreglo el ASCII cifrado.
+8. Convertir cada valor del ASCII cifrado a letras del alfabeto.
+9. Imprimir el texto cifrado en la caja de texto correspondiente.
+10. Se agrega la validación para que respete los espacios cuando se ingrese una frase.
+11. Crear la función para descifrado ajustando la formula y tomando de referencia la lógica de la función de cifrado.
+12. Hacer el push hacia repositorio remoto
+13. Deploy en GitHub Pages
+14. Refactorización de código en cada función, cifrado y descifrado
+
+## 5. Pruebas
+Probe la funcionalidad y la experiencia de usar la aplicacion en ventanas separadas, la conslusion fue que no era nada agradable, ademas de que una vez abierto una de las ventanas secundarias no había forma de regresar al inicio desde ahí. Tomé la decisión de rediseñar las ventanas y por consecuencia ajustar el código. 
+
+## 6. Rediseño
+En primer lugar hice los cabiós en Figma, agregue botones y reacomodé los elementos:
+
+**Pantalla principal**
+
+![principal-rediseño](./assets/principal-2.PNG)
+
+**Pantalla Cifrado**
+
+En medio de las cajas de texto se quedó el input de la clave y el botón para cifrar, abajo en cada extremo agregué dos botones, uno para regresar al inicio y otro para pasar a la ventana de descifrado.
+![cifrado-rediseño](./assets/cifrado.PNG)
+
+**Pantalla Descifrado**
+
+De igual forma se reacomodó en esta ventana, con la diferiencia que en la esquina inferior derecha, el botón cambia para ir a la ventana de cifrado.
+
+![descifrado-rediseño](./assets/descifrado.PNG)
+
+## 7. Ajuste de código
 
 ### HTML
 
-- [ ] **Uso de HTML semántico**
-
-  <details><summary>Links</summary><p>
-
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
-
-### CSS
-
-- [ ] **Uso de selectores de CSS**
-
-  <details><summary>Links</summary><p>
-
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
-
-- [ ] **Modelo de caja (box model): borde, margen, padding**
-
-  <details><summary>Links</summary><p>
-
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
-
-### Web APIs
-
-- [ ] **Uso de selectores del DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Manipulación del DOM](https://curriculum.laboratoria.la/es/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introducción al DOM - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Localizando elementos DOM usando selectores - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
-
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción a eventos - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/removeEventListener)
-  * [El objeto Event](https://developer.mozilla.org/es/docs/Web/API/Event)
-</p></details>
-
-- [ ] **Manipulación dinámica del DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción al DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/es/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
-</p></details>
-
-### JavaScript
-
-- [ ] **Tipos de datos primitivos**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores primitivos - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Data_structures#valores_primitivos)
-</p></details>
-
-- [ ] **Strings (cadenas de caracteres)**
-
-  <details><summary>Links</summary><p>
-
-  * [Strings](https://curriculum.laboratoria.la/es/topics/javascript/06-strings)
-  * [String — Cadena de caracteres - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String)
-</p></details>
-
-- [ ] **Variables (declaración, asignación, ámbito)**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores, tipos de datos y operadores](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variables](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/02-variables)
-</p></details>
-
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
-
-  <details><summary>Links</summary><p>
-
-  * [Estructuras condicionales y repetitivas](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisiones en tu código — condicionales - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
-
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
-
-  <details><summary>Links</summary><p>
-
-  * [Bucles (Loops)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/02-loops)
-  * [Bucles e iteración - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
-
-- [ ] **Funciones (params, args, return)**
-
-  <details><summary>Links</summary><p>
-
-  * [Funciones (control de flujo)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/03-functions)
-  * [Funciones clásicas](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/02-arrow)
-  * [Funciones — bloques de código reutilizables - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
-
-- [ ] **Pruebas unitarias (unit tests)**
-
-  <details><summary>Links</summary><p>
-
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
-
-- [ ] **Módulos de ECMAScript (ES Modules)**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
-
-### Control de Versiones (Git y GitHub)
-
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
-
-### user-centricity
-
-- [ ] **Diseñar un producto o servicio poniendo a la usuaria en el centro**
-
-### product-design
-
-- [ ] **Crear prototipos de alta fidelidad que incluyan interacciones**
-
-- [ ] **Seguir los principios básicos de diseño visual**
-
-## 4. Consideraciones generales
-
-* El equipo de coaches te dará un tiempo sugerido e indicaciones sobre si trabajar
-  sola o en equipo. Recuerda que cada una aprende a diferente ritmo.
-* El proyecto será entregado subiendo tu código a GitHub (commit/push) y la
-  interfaz será desplegada usando GitHub pages. Si no sabes lo que es GitHub, no
-  te preocupes, lo aprenderás durante este proyecto.
-
-## 5. Criterios de aceptación mínimos del proyecto
-
-Usa este alfabeto simple (solamente mayúsculas y sin ñ):
-
-* A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-
-### Definición del producto
-
-En el README.md, cuéntanos cómo pensaste en los usuarios y cuál fue tu proceso
-para definir el producto final a nivel de experiencia y de interfaz.
-
-* Quiénes son los principales usuarios de producto.
-* Cuáles son los objetivos de estos usuarios en relación con tu producto.
-* Cómo crees que el producto que estás creando está resolviendo sus problemas.
-
-### Interfaz de usuario (UI)
-
-La interfaz debe permitir al usuario:
-
-* Elegir un desplazamiento (_offset_) indicando cuántas posiciones queremos que
-  el cifrado desplace cada caracter.
-* Insertar un mensaje (texto) que queremos cifrar.
-* Ver el resultado del mensaje cifrado.
-* Insertar un mensaje (texto) a descifrar.
-* Ver el resultado del mensaje descifrado.
-
-### Scripts / Archivos
-
-* `README.md`: debe explicar cómo descargar, instalar y ejecutar la aplicación
-  así como una introducción a la aplicación, su funcionalidad y decisiones de
-  diseño que tomaron.
-* `src/index.html`: este es el punto de entrada a tu aplicación. Este archivo
-  debe contener tu _markup_ (HTML) e incluir el CSS y JavaScript necesario.
-* `src/cipher.js`: acá debes implementar el objeto `cipher`, el cual ya está
-  _exportado_ en el _boilerplate_. Este objeto (`cipher`) debe contener dos
-  métodos:
-  - `cipher.encode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la derecha en el alfabeto y `string` el mensaje (texto)
-    que queremos cifrar.
-  - `cipher.decode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la izquierda en el alfabeto y `string` el mensaje
-    (texto) que queremos descifrar.
-* `src/index.js`: acá debes escuchar eventos del DOM, invocar `cipher.encode()`
-  o `cipher.decode()` según sea necesario y actualizar el resultado en la UI.
-* `test/cipher.spec.js`: este archivo contiene algunos tests de ejemplo y acá
-  tendrás que implementar los tests para `cipher.encode()` y `cipher.decode()`.
-
-## 6. Hacker edition
-
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-La descripción general de este proyecto no menciona qué pasaría con las letras
-minúsculas y otros caracteres (como espacios, puntuación, ñ, ...). El
-boilerplate incluye algunos tests (comentados en principio) que puedes usar como
-punto de partida para implementar el soporte para estos casos.
-
-Tampoco se menciona qué pasaría si el offset fuera negativo. Como parte del
-hacker edition te invitamos a explorar también esta caso por tu cuenta.
-
-## 7. Consideraciones técnicas
-
-La lógica del proyecto debe estar implementada completamente en JavaScript. En
-este proyecto NO está permitido usar librerías o frameworks, solo JavaScript puro
-también conocido como Vanilla JavaScript.
-
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_
-y _lines_, y un mínimo del 50% de _branches_. El _boilerplate_ ya contiene el
-setup y configuración necesaria para ejecutar los tests (pruebas) así como _code
-coverage_ para ver el nivel de cobertura de los tests usando el comando `npm
-test`.
-
-El _boilerplate_ incluye tests (pruebas) de ejemplo como punto de partida.
-
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio que contiene el _boilerplate_.
-
-El _boilerplate_ contiene una estructura de archivos como punto de partida así
-como toda la configuración de dependencias y tests de ejemplo:
-
-```text
-./
-├── .babelrc
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── README.md
-├── package.json
-├── src
-│   ├── cipher.js
-│   ├── index.html
-│   ├── index.js
-│   └── style.css
-└── test
-    ├── .eslintrc
-    └── cipher.spec.js
+Dada la decisión de rediseño, todos los archivos html se unieron en una sola estructura, index.html, cada pantalla se dividio en secciones(section), quedando dentro de main lo siguiente:
+
+```
+    <main >
+      <section id="main-section" class="index-main">
+      </section>
+      <section id="encode-section" class="encode">
+      </section>
+      <section id="decode-section" class="decode">
+      </section>
+    </main>
 ```
 
-El _boilerplate_ incluye tareas que ejecutan [eslint](https://eslint.org/) y
-[htmlhint](https://github.com/yaniswang/HTMLHint) para verificar el `HTML` y
-`JavaScript` con respecto a una guías de estilos. Ambas tareas se ejecutan
-automáticamente antes de ejecutar las pruebas (tests) cuando usamos el comando
-`npm run test`. En el caso de `JavaScript` estamos usando un archivo de
-configuración de `eslint` que se llama `.eslintrc` que contiene un mínimo de
-información sobre el parser que usar (qué version de JavaScript/ECMAScript), el
-entorno (browser en este caso) y las [reglas recomendadas (`"eslint:recommended"`)](https://eslint.org/docs/rules/).
-En cuanto a reglas/guías de estilo en sí,
-usaremos las recomendaciones _por defecto_ de tanto `eslint` como `htmlhint`.
+De esta forma, al darle click a cada botón, se ocultaban las secciones que no se utilizaban. Por ejemplo, desde la pantalla principal, al hacer click en CIFRAR MENSAJE, la main-section y decode-section se ocultaban y se mostraba solo la encode-section. Se crearon las funciones correspondientes para estas acciones, ejemplo:
 
-***
+```
+function showEncodeSection() {
+    document.getElementById("main-section").style.display = "none";
+    document.getElementById("encode-section").style.display = "flex";
+    document.getElementById("decode-section").style.display = "none";
+}
+```
 
-## 8. Pistas, tips y lecturas complementarias
+### JavaScript
+Al igual que con HTML, las funciones se pasaron al index.js, se ajustaron las variables e incluso se pudo reducir un poco mas las líneas de código. Hasta este momento, tanto escuhar los elementos del DOM como funciones se ejecutaban desde un solo archivo. 
 
-### Primeros pasos
+## 8. Deploy en GitHub Pages
+Para hacer el deploy se realizó la configuración correspondiente, se cambió el nombre al repositorio remoto y al local también. Una vez lista la configuración, se hizo push, se corrigieron algunos errores y se dejó lista la aplicación en el sitio.
 
-1. Antes que nada, asegúrate de tener un :pencil: editor de texto en
-   condiciones, algo como [Atom](https://atom.io/) o
-   [Code](https://code.visualstudio.com/).
-2. Para ejecutar los comandos a continuación necesitarás una :shell:
-   [UNIX Shell](https://curriculum.laboratoria.la/es/topics/shell),
-   que es un programita que interpreta líneas de comando (command-line
-   interpreter) así como tener [git](https://curriculum.laboratoria.la/es/topics/scm/01-git)
-   instalado. Si usas un sistema operativo "UNIX-like", como GNU/Linux o MacOS,
-   ya tienes una _shell_ (terminal) instalada por defecto (y probablemente `git`
-   también). Si usas Windows puedes usar la versión completa de [Cmder](https://cmder.net/)
-   que incluye [Git bash](https://git-scm.com/download/win) y si tienes Windows
-   10 o superior puedes usar [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-3. Una de las integrantes del equipo debe realizar un :fork_and_knife:
-   [fork](https://help.github.com/articles/fork-a-repo/) del repo de tu cohort,
-   tus _coaches_ te compartirán un _link_ a un repo y te darán acceso de lectura
-   en ese repo. La otra integrante del equipo deber hacer un fork **del
-   repositorio de su compañera** y
-   [configurar](https://gist.github.com/BCasal/026e4c7f5c71418485c1) un `remote`
-   hacia el mismo.
-4. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-   tu _fork_ a tu computadora (copia local).
-5. 📦 Instala las dependencias del proyecto con el comando `npm install`. Esto
-   asume que has instalado [Node.js](https://nodejs.org/) (que incluye [npm](https://docs.npmjs.com/)).
-6. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
-   pruebas unitarias (unit tests) con el comando `npm test`.
-7. Para ver la interfaz de tu programa en el navegador, usa el comando
-   `npm start` para arrancar el servidor web y dirígete a
-   `http://localhost:5000` en tu navegador.
-8. A codear se ha dicho! :rocket:
+Cabe mencionar que ya antes había realizado un procedimiento similar por lo que no fue un proceso en el que no me llevé mucho tiempo.
 
-### Recursos y temas relacionados
+## 9. Creación de métodos y objetos
+Un paso que dejé para el final, lo cual no fue la mejor decisión, fue crear el objeto y sus métodos.
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este proyecto. ¡Escúchala con detenimiento y sigue sus consejos! :)
+El boilerplate ya tenía lista las lineas de exportación e importación.
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+En el archivo **cipher.js** cree el objeto llamado cipher con sus 2 métodos, encode y decode. Pase a cada método, el código de cada función creada al inicio. Se tuvieron que modificar algunas variables. 
 
-[Link](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+### Método encode
 
-También una metodología para empezar a desarrollar tareas con JavaScript:
+```
+encode: function (offset, text) {
+        if(text === undefined || offset === undefined) {
+            throw new TypeError("Escribe el texto")
+        } else if (text === typeof 0 || offset === 0) {
+            throw new TypeError ("Valor invalido")
+        }
 
-[![Resolución de problemas con JavaScript](http://i3.ytimg.com/vi/lYfEmhLmu7A/hqdefault.jpg)](https://www.youtube.com/watch?v=lYfEmhLmu7A)
+        let textInASCII = [];
+        let codeTextInASCII = [];
+        let codeText = [];
 
-[Link](https://www.youtube.com/watch?v=lYfEmhLmu7A)
+        if (offset % 26 === 0) {
+            throw new TypeError("Por seguridad ingresa un numero distinto")
+        } else {
+            for (let i=0; i < text.length; i++) {
+                let x = text.charCodeAt(i);
+                textInASCII.push(x)
+                if (textInASCII[i] === 32) {
+                    let l = 32;
+                    codeTextInASCII.push(l);
+                } else {
+                    let l = ((textInASCII[i] - 65 + offset) % 26) + 65;
+                    codeTextInASCII.push(l);
+                }
+                let y = String.fromCharCode(codeTextInASCII[i]);
+                codeText.push(y);
+            }
+        }
+        console.log(codeText.join(''));
+        return codeText.join('');
+```
+Finalmente dejé en **index.js** las variables para escuchar al DOM y desde ahi se invocó al objeto con su respectivo método según era necesario:
 
-Terminal y shell de UNIX:
+```
+botonCifrarS.addEventListener("click", function(){
+    if (text.value === '') {
+        alert("Agrega texto a cifrar")
+    } else if (inputC.value === '') {
+        alert("Especifica clave de cifrado")
+    }
 
-[![Playlist de Terminal y shell de UNIX](https://img.youtube.com/vi/GB35Eyb-J4c/0.jpg)](https://www.youtube.com/playlist?list=PLiAEe0-R7u8nGH5TEHfSTeDNIvjZFe_Yd)
+    let valor = parseInt(inputC.value);
+    let otext = text.value;
 
-[Link](https://www.youtube.com/playlist?list=PLiAEe0-R7u8nGH5TEHfSTeDNIvjZFe_Yd)
+    ctext.innerHTML = cipher.encode(valor, otext);
+})
+```
 
-Control de versiones y trabajo colaborativo con Git y GitHub:
+## 10. Pruebas unitarias
+Las pruebas unitarias fue un proceso completamente nuevo para mi, aunque ya tenía terminada la aplicación y en la UI se obtenia el resultado esperado, las pruebas seguían fallando. 
+![test-fallido](./assets/failed-test-details.PNG)
+Con ayuda de la coach Luna, aprendí a leer cada test para corregir los errores:
+- Agregar Type error con condicionales
+- LLamar a los métodos con parámetros y en el orden indicado (offset, text)
 
-[![Playlist de control de versiones y trabajo colaborativo](https://img.youtube.com/vi/F1EoBbvhaqU/0.jpg)](https://www.youtube.com/playlist?list=PLiAEe0-R7u8k9o3PbT3_QdyoBW_RX8rnV)
+```
+        if(text === undefined || offset === undefined) {
+            throw new TypeError("Escribe un texto valido")
+        } else if (text === typeof 0 || offset === 0) {
+            throw new TypeError ("Ingresa un valor válido")
+        }
+```
+```
+ctext.innerHTML = cipher.encode(valor, otext);
+```
+Finalmente se completó el proyecto, en esta primera versión, pasando pruebas unitarias y con el despliegue en GitHub Pages
 
-[Link](https://www.youtube.com/playlist?list=PLiAEe0-R7u8nGH5TEHfSTeDNIvjZFe_Yd)
+![test-pass](./assets/test-ok.PNG)
 
-Diseño de experiencia de usuario (User Experience Design):
+[Cifrado César creado por Bere](https://beresdev.github.io/src/index.html)
 
-* Ideación
-* Prototipado (sketching)
-* Testeo e Iteración
 
-Desarrollo Front-end:
 
-* Valores
-* Tipos
-* Variables
-* Control de flujo
-* Tests unitarios
-* [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-* [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-* [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
-* [Documentación de NPM](https://docs.npmjs.com/)
 
-Organización del Trabajo:
 
-* [Metodologías Ágiles](https://www.youtube.com/watch?v=v3fLx7VHxGM)
-* [Scrum en menos de 2 minutos](https://www.youtube.com/watch?v=TRcReyRYIMg)
-* [Scrum en Detalle](https://www.youtube.com/watch?v=nOlwF3HRrAY&t=297s). No
-  esperamos que hagas todo eso desde este proyecto. Iremos profundizando poco a
-  poco a lo largo del -_bootcamp_.
-* [Guía para Cifrado César](https://docs.google.com/presentation/d/e/2PACX-1vTQ7-8LZDHrT4Y6AOBN72Nkfz1eJAeseBHpcHX8BSq0aFCFoZmuMjluMeyFNgK9ISKxTz0H03yGfJiT/pub?start=false&loop=false&delayms=60000)
 
-## 9. Checklist
-
-Esta sección está para ayudarte a llevar un control de lo que vas completando.
-
-### Parte Obligatoria
-
-* [ ] `README.md` incluye info sobre proceso y decisiones de diseño.
-* [ ] `README.md` explica claramente quiénes son los usuarios y su relación con
-  el producto.
-* [ ] `README.md` explica claramente cómo el producto soluciona los
-  problemas/necesidades de los usuarios.
-* [ ] Usa VanillaJS.
-* [ ] Implementa `cipher.encode`.
-* [ ] Implementa `cipher.decode`.
-* [ ] Pasa linter con configuración provista.
-* [ ] Pasa pruebas unitarias.
-* [ ] Pruebas unitarias cubren 70% de _statements_, _functions_ y _lines_, y un
-  mínimo del 50% de _branches_.
-* [ ] Interfaz permite elegir el `offset` o _desplazamiento_ a usar en el
-  cifrado/descifrado.
-* [ ] Interfaz permite escribir un texto para ser cifrado.
-* [ ] Interfaz muestra el resultado del cifrado correctamente.
-* [ ] Interfaz permite escribir un texto para ser descifrado.
-* [ ] Interfaz muestra el resultado del descifrado correctamente.
-
-### Parte Opcional: "Hacker edition"
-
-* [ ] Cifra/descifra minúsculas
-* [ ] Cifra/descifra _otros_ caracteres (espacios, puntuación, `ñ`, `á`, ...)
-* [ ] Permite usar un `offset` negativo.

@@ -29,7 +29,6 @@ function showEncodeSection() {
 }
 
 botonCifrarS.addEventListener("click", function(){
-
     if (text.value === '') {
         alert("Agrega texto a cifrar")
     } else if (inputC.value === '') {
