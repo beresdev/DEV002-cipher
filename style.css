@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Michroma', sans-serif;
+    color: #DDDDDD;
+    background-color: #222831;
+}
+
+header, h2, main{
+    margin-top: 60px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.main-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 200px auto 0;
+    width: 800px;
+    /* padding-top: 100px; */
+}
+
+.button {
+    width: 300px;
+    height: 80px;
+    border: solid 3px #F05454;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.button:hover {
+    background-color: #F05454;
+    cursor: pointer;
+}
+
+/* encode section */
+
+.encode, .decode {
+    display: flex;
+    flex-direction: column;
+}
+
+.encode .instructions {
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+.instructions ul {
+    padding:10px 0 20px 50px;
+}
+
+.encode-main, .decode-main {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.encode-main .section-textarea textarea {
+    width: 450px;
+    height: 200px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.section-key-button {
+    width: 25%;
+    padding: 10px 0;
+    text-align: center;
+}
+.section-key-button input {
+    width: 70px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.label-input {
+    width:200px;
+    margin: 0 auto;
+}
+
+.section-key-button button {
+    margin: 15px 0;
+}
+
+.buttons-end {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 50px auto;
+}
+
+.buttons-end button {
+    width: 200px;
+    height: 50px;
+    border: solid 3px #F05454;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.buttons-end button i {
+    font-size: 20px;
+}
+
+.buttons-end button:hover {
+    background-color: #F05454;
+    cursor: pointer;
+}
+
+/* decode.section */
+
+.decode {
+    margin-top: 12%;
+}
+
+
+.decode-main .section-textarea textarea {
+    width: 450px;
+    height: 200px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+
