@@ -223,7 +223,7 @@ Finalmente se completó el proyecto, en esta primera versión, pasando pruebas u
 
 ![test-pass](./assets/test-ok.PNG)
 
-[Cifrado César creado por Bere](https://beresdev.github.io/src/index.html)
+[Cifrado César creado por Bere](https://beresdev.github.io/DEV002-cipher/)
 
 
 
